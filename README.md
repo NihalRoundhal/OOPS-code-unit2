@@ -1,2 +1,2 @@
 # OOPS-code-
-it consist of oops code of unit 2
+It consist of oops programs of unit 2
