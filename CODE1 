@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+#include <utility>
+
+using namespace std;
+
+// Base class
+class Person
+{
+protected:
+    string name;        // Stores person's name
+
+public:
+    // Constructor to initialize name
+    explicit Person(string personName)
+        : name(move(personName))
+    {
+    }
+
+    // Function to display name
+    void displayName() const
+    {
+        cout << "Name: " << name << '\n';
+    }
+};
+
+// Student inherits from Person
+class Student : public Person
+{
+private:
+    int rollNumber;     // Stores student's roll number
+
+public:
+    // Constructor to initialize student details
+    Student(string studentName, int roll)
+        : Person(move(studentName)),
+          rollNumber(roll)
+    {
+    }
+
+    // Function to display student details
+    void displayStudent()
+    {
+        displayName();
+        cout << "Roll Number: " << rollNumber << '\n';
+    }
+};
+
+// Main function
+int main()
+{
+    Student s1("Nihal", 33);
+
+    s1.displayStudent();
+
+    return 0;
+}
